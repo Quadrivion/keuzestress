@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+	body {
+		margin: 0px;
+		font-family: sans-serif;
+		background-image: url("https://hdqwalls.com/download/paladins-ying-ru-1920x1080.jpg");
+		background-size: cover;
+		color: white;
+		text-shadow: 0px 0px 4px black;
+		padding-left: 100px;
+		padding-top: 100px;
+	}
+	#list {
+		width: 590px;
+	}
+	.roleIcons {
+		width: 18px;
+		filter: invert(0%) drop-shadow(0px 0px 0.5px white);
+	}
+	#background {
+		width: 140px;
+	}
+	#frame {
+		width: 200px;
+	}
+	#dark {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: 100%;
+		box-sizing: border-box;
+		background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 33%,rgba(0,0,0,0.8) 50%,rgba(0,0,0,0.65) 66%,rgba(0,0,0,0.02) 99%,rgba(0,0,0,0) 100%);
+		z-index: -1;
+	}
+</style>
+<script type="text/javascript">
+	var champs = ["Androxus","Ash","Barik","BombKing","Buck","Cassie","Drogoz","Evie","Fernando","Grohk","Grover","Inara","Jenos","Kinessa","Lex","Lian","Maeve","Makoa","Mal'Damba","Moji","Pip","Ruckus","Seris","ShaLin","Skye","Strix","Talus","Terminus","Torvald","Tyra","Viktor","Vivian","Willo","Ying","Zhin"];
+	var role = [3,1,1,0,3,0,0,3,1,2,2,1,2,0,3,0,3,1,2,3,2,1,2,0,3,0,3,1,1,0,0,0,0,2,3];
+	var link = [
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/4/4a/Champion_Androxus_Icon.png?version=0a095ee5bb42dae66eead973c5db243d",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/7/73/Champion_Ash_Icon.png?version=469ba3029a8e532cdbb6aa6fbae39da2",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/c/cf/Champion_Barik_Icon.png?version=5d6bec49036bc62f63aaa5f240da0738",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/2/2b/Champion_BombKing_Icon.png?version=ae638b379e71871b137e307a13655be4",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/1/1d/Champion_Buck_Icon.png?version=e53270b255be5e9c89ddb0a31c2f4fe3",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/e/e0/Champion_Cassie_Icon.png?version=aa613c3974a30b86882ab67e324b82a1",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/d/d1/Champion_Drogoz_Icon.png?version=05ec96f283d4dac49e62c93b45c672f0",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/2/2c/Champion_Evie_Icon.png?version=798e35a424e805f2f04d78475b1d8f98",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/4/4b/Champion_Fernando_Icon.png?version=ee64e29705c9ae458544842d85abf616",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/c/c7/Champion_Grohk_Icon.png?version=469c1afe7d1ac5338745987c4752b463",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/a/a9/Champion_Grover_Icon.png?version=d027df40d385e13d020b1bd3aaae7bc4",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/b/bb/Champion_Inara_Icon.png?version=9b24d8c4d5b842570e207e253371abc1",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/7/75/Champion_Jenos_Icon.png?version=97de9e3aa81a20cc25e82b940fe885a7",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/0/0d/Champion_Kinessa_Icon.png?version=bffc372d740804cc90a732e014662e60",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/8/84/Champion_Lex_Icon.png?version=2502fc35e2ab63433cc901ab9140a8cf",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/6/66/Champion_Lian_Icon.png?version=5cf4dba655fe07fa3503617397902d93",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/2/28/Champion_Maeve_Icon.png?version=1f114d8b0340de0cf631c9d7fa1eef0a",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/b/be/Champion_Makoa_Icon.png?version=5d4473a66ce364e2fde48a31e6f61492",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/c/c9/Champion_Mal%27Damba_Icon.png?version=6c2d4ecdf32e940921b230f114121a56",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/7/76/Champion_Moji_Icon.png?version=8db36f81662f6de27a489a8a8cffae3e",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/2/22/Champion_Pip_Icon.png?version=c1be9ae94f0298828512888ce7e28e4c",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/f/fa/Champion_Ruckus_Icon.png?version=519fc22e32b6d8f4e3fab338e06c1474",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/f/fd/Champion_Seris_Icon.png?version=1b4d45cdbc6724e3b0102cb10fd00471",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/a/aa/Champion_ShaLin_Icon.png?version=c4ebf46b71213dff998fa2cec6c4ec93",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/a/a2/Champion_Skye_Icon.png?version=4818a96dfbf95f7481b1fc75d805d20b",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/9/92/Champion_Strix_Icon.png?version=a0e74a6da7f27ed15d7bca2247da73cf",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/a/a2/Champion_Talus_Icon.png?version=e725c5dfbdb2d9033860a05c400ce860",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/9/96/Champion_Terminus_Icon.png?version=d1a06fe7cb97eeaff1c0dbe56250eede",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/b/bc/Champion_Torvald_Icon.png?version=602afb9ba5b6c2c02fdb830143872dea",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/5/56/Champion_Tyra_Icon.png?version=c0802c49d45f91dce996503029455101",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/6/68/Champion_Viktor_Icon.png?version=6e755746a1691e2515a244f93d103be7",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/7/79/Champion_Vivian_Icon.png?version=8fb706c7b69abf0e65fb819c97e98244",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/d/de/Champion_Willo_Icon.png?version=d4bcc6157d511b9f42851bca9fd89f7d",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/7/7f/Champion_Ying_Icon.png?version=d9b0274df0b9970db9824f09732696cc",
+	"https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/2/2e/Champion_Zhin_Icon.png?version=50d8fdae00175cc552da5de5ad965fb8",
+	]
+
+	window.onload = () => {
+
+		for (var i = 0; i < champs.length; i ++) {
+			var row = Math.floor(i / 5);
+			var e = document.createElement("input");
+			e.className = "option";
+			e.type = "checkbox";
+			e.name = champs[i];
+			document.getElementById("list").appendChild(e);
+			var img = document.createElement("img");
+			img.className = "roleIcons"
+			switch (role[i]) {
+				case (0):
+				img.src = "https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/c/cc/Class_Damage_Icon.png?version=5933a844c815b9011ca7cb9b609be6ba";
+				break;
+				case (1):
+				img.src = "https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/4/49/Class_Front_Line_Icon.png?version=099d8dd94a0294f31e5f2b6f6d234951";
+				break;
+				case (2):
+				img.src = "https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/d/dc/Class_Support_Icon.png?version=701ff5c37a477a91972a21b29cde493e";
+				break;
+				case (3):
+				img.src = "https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/6/6d/Class_Flank_Icon.png?version=49eac3ebea1fcb6b9437ae9e6c0e8ca8";
+				break;
+				default: undefined;
+			}
+			
+			document.getElementById("list").appendChild(img);
+			var d = document.createElement("div");
+			d.style.display = "inline-block";
+			d.style.width = "80px";
+			d.innerHTML = champs[i];
+			document.getElementById("list").appendChild(d);
+
+		}
+		document.getElementById("random").onclick = function() {
+			var opt = [];
+			var roles = [document.getElementsByName("damage")[0].checked, document.getElementsByName("frontLine")[0].checked, document.getElementsByName("support")[0].checked, document.getElementsByName("flank")[0].checked];
+			var left = [0,0,0,0];
+			var e = document.getElementsByClassName("option");
+			for (var i = 0; i < e.length; i ++) {
+				if (!e[i].checked) {
+					for (var j = 0; j < roles.length; j ++) {
+						if (roles[j] && j == role[i]) {opt.push(champs[i]); continue;}
+					}
+					left[role[i]] ++;
+				}
+			}
+			if (opt.length != 0) {
+				var rand = opt[Math.floor(Math.random() * opt.length)];
+				document.getElementsByName(rand)[0].checked = true;
+				document.getElementById("pick").innerHTML = "Pick: " + (rand);
+				document.getElementById("background").src = link[champs.indexOf(rand)];
+				left[role[champs.indexOf(rand)]] --;
+			} else {
+				document.getElementById("pick").innerHTML = "No champion available.";
+			}
+			document.getElementById("count").innerHTML = 
+			"Total " + (left[0] + left[1] + left[2] + left[3]) + " left<br>" +
+			"Damage: " + left[0] + " left<br>" +
+			"Front Line: " + left[1] + " left<br>" +
+			"Support: " + left[2] + " left<br>" +
+			"Flank: " + left[3] + " left"
+			;
+		}
+	}
+
+	function reset() {
+		var roles = [document.getElementsByName("damage")[0].checked, document.getElementsByName("frontLine")[0].checked, document.getElementsByName("support")[0].checked, document.getElementsByName("flank")[0].checked];
+		var e = document.getElementsByClassName("option");
+		for (var i = 0; i < e.length; i ++) {
+			for (var j = 0; j < roles.length; j ++) {
+				if (roles[j] && j == role[i]) {
+					e[i].checked = false;
+				}
+			}
+		}
+	}
+	function checkAll() {
+		var e = document.getElementsByClassName("option");
+		for (var i = 0; i < e.length; i ++) {
+			e[i].checked = true;
+		}
+	}
+</script>
+</head>
+<body>
+	<div id="dark"></div>
+	<input type="button" value="Random Champ" id="random"><input type="button" value="Reset" onclick="reset();"><input type="button" value="Check All" onclick="checkAll();">
+	
+	<div>Checklist:</div>
+	<div id="list" style="position: relative;"></div>
+	<h1 id="pick" style="margin: auto; text-align: center; position: relative; left: -50px">Click on 'Random Champ'.</h1>
+	<div style="overflow: hidden; width: 115px; height: 200px; position: absolute; left: 50%; transform: translateX(-50%);">
+		<img src="" style=" position: relative; left: 50%; transform: translate(-50%, 0px);" id="background">
+	</div>
+	<img src="https://d1u5p3l4wpay3k.cloudfront.net/paladins_gamepedia/thumb/8/89/RankFrame_Qualifying.png/128px-RankFrame_Qualifying.png?version=260aacae698ec78ef8f612b374f2ede5" 
+	style=" position: absolute; left: 50%; transform: translate(-50%, -25px);" id="frame">
+
+	<div>Role condition:</div>
+	<input type="checkbox" name="damage" checked="true"><span>Damage</span>
+	<input type="checkbox" name="frontLine" checked="true"><span>Frontline</span>
+	<input type="checkbox" name="support" checked="true"><span>Support</span>
+	<input type="checkbox" name="flank" checked="true"><span>Flank</span>
+	<div id="count"></div>
+
+</body>
+</html>
